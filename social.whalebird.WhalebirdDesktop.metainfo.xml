@@ -2,7 +2,7 @@
 <component type="desktop-application">
   <id>social.whalebird.WhalebirdDesktop</id>
   
-  <name>WhaleBrird </name>
+  <name>Whalebird</name>
   <summary>Whalebird is a Mastodon, Pleroma, and Misskey client for the desktop</summary>
   
   <metadata_license>CC0-1.0</metadata_license>
