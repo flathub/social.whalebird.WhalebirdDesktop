@@ -47,8 +47,8 @@ modules:
       - cp -r build/linux-*unpacked /app/whalebird
       - install -Dm755 -t /app/bin ./start-whalebird.sh
     post-install:
-      - install -D social.whalebird.WhalebirdDesktop.desktop -t /app/share/applications/
-      - install -D social.whalebird.WhalebirdDesktop.metainfo.xml -t /app/share/metainfo/
+      - install -D flatpak-data/social.whalebird.WhalebirdDesktop.desktop -t /app/share/applications/
+      - install -D flatpak-data/social.whalebird.WhalebirdDesktop.metainfo.xml -t /app/share/metainfo/
       - install -Dm644 build/icons/icon.iconset/icon_16x16.png /app/share/icons/hicolor/16x16/apps/$FLATPAK_ID.png
       - install -Dm644 build/icons/icon.iconset/icon_32x32.png /app/share/icons/hicolor/32x32/apps/$FLATPAK_ID.png
       - install -Dm644 build/icons/icon.iconset/icon_128x128.png /app/share/icons/hicolor/128x128/apps/$FLATPAK_ID.png 
@@ -56,16 +56,12 @@ modules:
     sources:
       - type: git
         url: https://github.com/h3poteto/whalebird-desktop.git
-        tag: '4.4.6'
-        commit: 2359b76198662407ef8ce55e80d77703befcaf98
+        tag: '4.5.1'
+        commit: 0797b5853cc953210f37eab69ee5cc005c6fd4b8
       - type: script
         dest-filename: start-whalebird.sh
         commands:
           - export TMPDIR=$XDG_RUNTIME_DIR/app/$FLATPAK_ID
           - GTK_USE_PORTAL=1
           - FLATPAK_HOST=1 zypak-wrapper.sh /app/whalebird/whalebird "$@"
-      - type: file
-        path: social.whalebird.WhalebirdDesktop.desktop
-      - type: file
-        path: social.whalebird.WhalebirdDesktop.metainfo.xml
       - generated-sources.json
