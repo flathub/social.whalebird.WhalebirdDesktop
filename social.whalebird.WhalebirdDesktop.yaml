@@ -17,13 +17,12 @@ finish-args:
   - --talk-name=org.freedesktop.secrets
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.gtk.vfs.*
-  - --filesystem=xdg-videos:ro
-  - --filesystem=xdg-pictures:ro
-  - --filesystem=xdg-download
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=com.canonical.AppMenu.Registrar
   - --talk-name=com.canonical.indicator.application
   - --talk-name=com.canonical.Unity.LauncherEntry
+  - --env=FLATPAK_HOST=1 
+  - --env=GTK_USE_PORTAL=1
 modules:
   - name: whalebird
     buildsystem: simple
@@ -56,8 +55,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/h3poteto/whalebird-desktop.git
-        tag: '4.6.0'
-        commit: 64eec9309f34685289783a54a7400d535950e5bc
+        tag: '4.6.1'
+        commit: 75a37697113ecc0ac3b2ca79b352935c7894095c
       - type: script
         dest-filename: start-whalebird.sh
         commands:
