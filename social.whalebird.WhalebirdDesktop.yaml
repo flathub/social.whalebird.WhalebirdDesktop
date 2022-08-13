@@ -55,12 +55,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/h3poteto/whalebird-desktop.git
-        tag: '4.6.1'
-        commit: 75a37697113ecc0ac3b2ca79b352935c7894095c
+        tag: '4.6.2'
+        commit: 27dcbe4b9e0cceac3b8e92a6da093c5a0222adee
       - type: script
         dest-filename: start-whalebird.sh
         commands:
           - export TMPDIR=$XDG_RUNTIME_DIR/app/$FLATPAK_ID
-          - GTK_USE_PORTAL=1
           - FLATPAK_HOST=1 zypak-wrapper.sh /app/whalebird/whalebird "$@"
       - generated-sources.json
