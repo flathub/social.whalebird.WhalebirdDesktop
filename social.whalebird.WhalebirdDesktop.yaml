@@ -55,8 +55,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/h3poteto/whalebird-desktop.git
-        tag: '4.7.4'
-        commit: 697a698c4c12cc87692d11219e5e703cf00c14a3
+        tag: v5.0.0
+        commit: 28578e381da54696ee03a4fc91489030e6a52c4b
       - type: script
         dest-filename: start-whalebird.sh
         commands:
