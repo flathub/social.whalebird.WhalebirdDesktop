@@ -6,7 +6,7 @@ runtime-version: '22.08'
 command: start-whalebird.sh
 sdk: org.freedesktop.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node16
+  - org.freedesktop.Sdk.Extension.node18
 separate-locales: false
 finish-args:
   - --share=ipc
@@ -27,7 +27,7 @@ modules:
   - name: whalebird
     buildsystem: simple
     build-options:
-      append-path: /usr/lib/sdk/node16/bin
+      append-path: /usr/lib/sdk/node18/bin
       env:
         npm_config_nodedir: /usr/lib/sdk/node16
         ELECTRON_CACHE: /run/build/whalebird/flatpak-node/cache/electron
@@ -55,8 +55,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/h3poteto/whalebird-desktop.git
-        tag: v5.0.0
-        commit: 28578e381da54696ee03a4fc91489030e6a52c4b
+        tag: v5.0.1
+        commit: b6c62e14e596ada4f83e7eb8e21020008aa0ca9e
       - type: script
         dest-filename: start-whalebird.sh
         commands:
