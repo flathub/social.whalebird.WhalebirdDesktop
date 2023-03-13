@@ -6,7 +6,7 @@ runtime-version: '22.08'
 command: start-whalebird.sh
 sdk: org.freedesktop.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node16
+  - org.freedesktop.Sdk.Extension.node18
 separate-locales: false
 finish-args:
   - --share=ipc
@@ -27,9 +27,9 @@ modules:
   - name: whalebird
     buildsystem: simple
     build-options:
-      append-path: /usr/lib/sdk/node16/bin
+      append-path: /usr/lib/sdk/node18/bin
       env:
-        npm_config_nodedir: /usr/lib/sdk/node16
+        npm_config_nodedir: /usr/lib/sdk/node18
         ELECTRON_CACHE: /run/build/whalebird/flatpak-node/cache/electron
         ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
         OFFLINE: '1'
@@ -46,6 +46,7 @@ modules:
       - cp -r build/linux-*unpacked /app/whalebird
       - install -Dm755 -t /app/bin ./start-whalebird.sh
     post-install:
+      - sed -i 's/screenshot_1.png/screenshot.png/g' flatpak-data/social.whalebird.WhalebirdDesktop.metainfo.xml
       - install -D flatpak-data/social.whalebird.WhalebirdDesktop.desktop -t /app/share/applications/
       - install -D flatpak-data/social.whalebird.WhalebirdDesktop.metainfo.xml -t /app/share/metainfo/
       - install -Dm644 build/icons/icon.iconset/icon_16x16.png /app/share/icons/hicolor/16x16/apps/$FLATPAK_ID.png
@@ -55,8 +56,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/h3poteto/whalebird-desktop.git
-        tag: v5.0.0
-        commit: 28578e381da54696ee03a4fc91489030e6a52c4b
+        tag: v5.0.1
+        commit: b6c62e14e596ada4f83e7eb8e21020008aa0ca9e
       - type: script
         dest-filename: start-whalebird.sh
         commands:
