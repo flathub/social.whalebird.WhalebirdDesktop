@@ -30,15 +30,15 @@ modules:
       append-path: /usr/lib/sdk/node18/bin
       env:
         npm_config_nodedir: /usr/lib/sdk/node18
-        ELECTRON_CACHE: /run/build/whalebird/flatpak-node/cache/electron
+        XDG_CACHE_HOME: /run/build/whalebird/flatpak-node/cache/
         ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
         OFFLINE: '1'
         TMPDIR: /run/build/whalebird/flatpak-node/tmp
-        XDG_CACHE_HOME: /run/build/whalebird/flatpak-node/cache
     build-commands:
       - jq 'del(.linux.target)'  <<<$(<electron-builder.json) > electron-builder.json
       - jq '.linux.target[0].target="dir"' <<<$(<electron-builder.json) > electron-builder.json
       - HOME=$PWD yarn config --offline set yarn-offline-mirror ./flatpak-node/yarn-mirror
+      - HOME=$PWD yarn config --offline set better-sqlite3_local_prebuilds "${PWD}/flatpak-node/prebuild-mirror"
       - yarn --offline 
       # equiv to yarn build:linux
       - yarn --offline build
@@ -56,8 +56,12 @@ modules:
     sources:
       - type: git
         url: https://github.com/h3poteto/whalebird-desktop.git
-        tag: v5.0.1
-        commit: b6c62e14e596ada4f83e7eb8e21020008aa0ca9e
+        tag: v5.0.2
+        commit: 4998993d50799bf885112f6005c5fc50fa1d20d7
+      - type: file
+        url: https://github.com/WiseLibs/better-sqlite3/releases/download/v8.2.0/better-sqlite3-v8.2.0-electron-v107-linux-x64.tar.gz
+        sha256: bcf4df6d01dd1d8292fba365a7ff4eed47d1f4f527a7e4ba35b74e8df84ff58f
+        dest: flatpak-node/prebuild-mirror
       - type: script
         dest-filename: start-whalebird.sh
         commands:
