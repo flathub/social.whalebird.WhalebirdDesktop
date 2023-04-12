@@ -1,8 +1,8 @@
 app-id: social.whalebird.WhalebirdDesktop
 base: org.electronjs.Electron2.BaseApp
-base-version: '22.08'
+base-version: "22.08"
 runtime: org.freedesktop.Platform
-runtime-version: '22.08'
+runtime-version: "22.08"
 command: start-whalebird.sh
 sdk: org.freedesktop.Sdk
 sdk-extensions:
@@ -21,7 +21,7 @@ finish-args:
   - --talk-name=com.canonical.AppMenu.Registrar
   - --talk-name=com.canonical.indicator.application
   - --talk-name=com.canonical.Unity.LauncherEntry
-  - --env=FLATPAK_HOST=1 
+  - --env=FLATPAK_HOST=1
   - --env=GTK_USE_PORTAL=1
 modules:
   - name: whalebird
@@ -31,18 +31,18 @@ modules:
       env:
         npm_config_nodedir: /usr/lib/sdk/node18
         XDG_CACHE_HOME: /run/build/whalebird/flatpak-node/cache/
-        ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
-        OFFLINE: '1'
+        ELECTRON_SKIP_BINARY_DOWNLOAD: "1"
+        OFFLINE: "1"
         TMPDIR: /run/build/whalebird/flatpak-node/tmp
     build-commands:
       - jq 'del(.linux.target)'  <<<$(<electron-builder.json) > electron-builder.json
       - jq '.linux.target[0].target="dir"' <<<$(<electron-builder.json) > electron-builder.json
       - HOME=$PWD yarn config --offline set yarn-offline-mirror ./flatpak-node/yarn-mirror
       - HOME=$PWD yarn config --offline set better-sqlite3_local_prebuilds "${PWD}/flatpak-node/prebuild-mirror"
-      - yarn --offline 
+      - yarn --offline
       # equiv to yarn build:linux
       - yarn --offline build
-      - yarn --offline package:linux 
+      - yarn --offline package:linux
       - cp -r build/linux-*unpacked /app/whalebird
       - install -Dm755 -t /app/bin ./start-whalebird.sh
     post-install:
@@ -50,13 +50,13 @@ modules:
       - install -D flatpak-data/social.whalebird.WhalebirdDesktop.metainfo.xml -t /app/share/metainfo/
       - install -Dm644 build/icons/icon.iconset/icon_16x16.png /app/share/icons/hicolor/16x16/apps/$FLATPAK_ID.png
       - install -Dm644 build/icons/icon.iconset/icon_32x32.png /app/share/icons/hicolor/32x32/apps/$FLATPAK_ID.png
-      - install -Dm644 build/icons/icon.iconset/icon_128x128.png /app/share/icons/hicolor/128x128/apps/$FLATPAK_ID.png 
+      - install -Dm644 build/icons/icon.iconset/icon_128x128.png /app/share/icons/hicolor/128x128/apps/$FLATPAK_ID.png
       - install -Dm644 build/icons/icon.iconset/icon_256x256.png /app/share/icons/hicolor/256x256/apps/$FLATPAK_ID.png
     sources:
       - type: git
         url: https://github.com/h3poteto/whalebird-desktop.git
-        tag: v5.0.2
-        commit: 4998993d50799bf885112f6005c5fc50fa1d20d7
+        tag: v5.0.3
+        commit: 643f53846375ddd94f44b9562f3a227e90f06892
       - type: file
         url: https://github.com/WiseLibs/better-sqlite3/releases/download/v8.2.0/better-sqlite3-v8.2.0-electron-v107-linux-x64.tar.gz
         sha256: bcf4df6d01dd1d8292fba365a7ff4eed47d1f4f527a7e4ba35b74e8df84ff58f
