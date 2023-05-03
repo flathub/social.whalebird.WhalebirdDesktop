@@ -55,11 +55,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/h3poteto/whalebird-desktop.git
-        tag: v5.0.4
-        commit: c950d522b38a17c89110bc0abfadb1ff2ba597d4
+        tag: v5.0.5
+        commit: b43f13829d736b5a0866ddfb00557c580264f565
       - type: file
-        url: https://github.com/WiseLibs/better-sqlite3/releases/download/v8.3.0/better-sqlite3-v8.3.0-electron-v109-linux-x64.tar.gz
-        sha256: 8f8271a058c10f5c66509592ce3ad51c74140fe836f3732ec8e841e16c09b102
+        url: https://github.com/WiseLibs/better-sqlite3/releases/download/v8.2.0/better-sqlite3-v8.2.0-electron-v109-linux-x64.tar.gz
+        sha256: 596731df44570e985ac653108c244a62023c21f0748898e7ee4472ea5cf3c4a5
         dest: flatpak-node/prebuild-mirror
       - type: script
         dest-filename: start-whalebird.sh
