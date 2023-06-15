@@ -2747,9 +2747,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/better-sqlite3/-/better-sqlite3-8.4.0.tgz#aa27bbc6bb42bb438fc55c88b146fcfe5978fa76",
-        "sha512": "366b0d5b5090bea32cceefc2140277a4b72de8d10594d7ee18ceafc3bd8a1e48ce0f55039cbf7a5cd37504c41cd61887a3cbc4d866ce590608a59f98339c2b67",
-        "dest-filename": "better-sqlite3-8.4.0.tgz",
+        "url": "https://registry.yarnpkg.com/better-sqlite3/-/better-sqlite3-8.2.0.tgz#4ef6185b88992723de7e00cfa67585ac59f320bd",
+        "sha512": "f1e4f3c4693de77e52077a1236ed2d43a23865f7e35420548ca1cdf5079e205b698415f4b0477437102e82504d47d4cee53867c4107b1aacdf718a3d92369d25",
+        "dest-filename": "better-sqlite3-8.2.0.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
