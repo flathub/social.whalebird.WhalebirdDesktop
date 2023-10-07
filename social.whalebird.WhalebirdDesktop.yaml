@@ -1,8 +1,8 @@
 app-id: social.whalebird.WhalebirdDesktop
 base: org.electronjs.Electron2.BaseApp
-base-version: "22.08"
+base-version: "23.08"
 runtime: org.freedesktop.Platform
-runtime-version: "22.08"
+runtime-version: "23.08"
 command: start-whalebird.sh
 sdk: org.freedesktop.Sdk
 sdk-extensions:
@@ -55,11 +55,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/h3poteto/whalebird-desktop.git
-        tag: v5.0.7
-        commit: 60fe0ace7931df2a513c43e44ecab27ce9d11ed7
+        tag: v5.1.0
+        commit: b82590d22566d143284959417523a5881359e839
       - type: file
-        url: https://github.com/WiseLibs/better-sqlite3/releases/download/v8.2.0/better-sqlite3-v8.2.0-electron-v109-linux-x64.tar.gz
-        sha256: 596731df44570e985ac653108c244a62023c21f0748898e7ee4472ea5cf3c4a5  
+        url: https://github.com/WiseLibs/better-sqlite3/releases/download/v8.2.0/better-sqlite3-v8.2.0-electron-v110-linux-x64.tar.gz
+        sha256: b157a5c4adf3a0b2170a865e15b43c47f15f3949639ff48dfea3791dfcefec7f  
         dest: flatpak-node/prebuild-mirror
       - type: script
         dest-filename: start-whalebird.sh
