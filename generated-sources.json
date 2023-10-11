@@ -1,16 +1,16 @@
 [
     {
         "type": "file",
-        "url": "https://github.com/electron/electron/releases/download/v22.3.24/SHASUMS256.txt",
-        "sha256": "6778bf29ef803458dbca5a8b759822de23c7a36790587967f3370a2b69d48730",
-        "dest-filename": "SHASUMS256.txt-22.3.24",
+        "url": "https://github.com/electron/electron/releases/download/v22.3.25/SHASUMS256.txt",
+        "sha256": "1265392af7274058b3c81c350be761e3f13a6cb0867b24e27f84cb6ea72eea23",
+        "dest-filename": "SHASUMS256.txt-22.3.25",
         "dest": "flatpak-node/cache/electron"
     },
     {
         "type": "file",
-        "url": "https://github.com/electron/electron/releases/download/v22.3.24/electron-v22.3.24-linux-arm64.zip",
-        "sha256": "055776ed281fa2db76a9e663677155b9631e4c6ac57c1e86938c789913c72fe7",
-        "dest-filename": "electron-v22.3.24-linux-arm64.zip",
+        "url": "https://github.com/electron/electron/releases/download/v22.3.25/electron-v22.3.25-linux-arm64.zip",
+        "sha256": "08c4e127d06d73ad91fa308c811ace9d4f8607fe15ba0b2694261d32a2127a8c",
+        "dest-filename": "electron-v22.3.25-linux-arm64.zip",
         "dest": "flatpak-node/cache/electron",
         "only-arches": [
             "aarch64"
@@ -18,9 +18,9 @@
     },
     {
         "type": "file",
-        "url": "https://github.com/electron/electron/releases/download/v22.3.24/electron-v22.3.24-linux-armv7l.zip",
-        "sha256": "bf986ec2e04c1f81a753dc17d71d231e16e0903d9114b1a73b1df0f18281d549",
-        "dest-filename": "electron-v22.3.24-linux-armv7l.zip",
+        "url": "https://github.com/electron/electron/releases/download/v22.3.25/electron-v22.3.25-linux-armv7l.zip",
+        "sha256": "d90184e22f9d57fa4f207d5e5006bbfb6df1b9e10760333c3f72353ffa5ef3d1",
+        "dest-filename": "electron-v22.3.25-linux-armv7l.zip",
         "dest": "flatpak-node/cache/electron",
         "only-arches": [
             "arm"
@@ -28,9 +28,9 @@
     },
     {
         "type": "file",
-        "url": "https://github.com/electron/electron/releases/download/v22.3.24/electron-v22.3.24-linux-x64.zip",
-        "sha256": "0c48912ff2bcbfe7e7c80eae76b82e2ba1e03cc872c0c6817faa560155447edd",
-        "dest-filename": "electron-v22.3.24-linux-x64.zip",
+        "url": "https://github.com/electron/electron/releases/download/v22.3.25/electron-v22.3.25-linux-x64.zip",
+        "sha256": "f1d0f66b13d5b7b9e3f7d9b22891bf0b5b6f87e45c46054cd3fa74636c19e921",
+        "dest-filename": "electron-v22.3.25-linux-x64.zip",
         "dest": "flatpak-node/cache/electron",
         "only-arches": [
             "x86_64"
@@ -4644,9 +4644,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/electron/-/electron-22.3.24.tgz#14479cf11cf4709f78d324015429fa82492c2150",
-        "sha512": "c271ac4a1a11564d499a0afb87f8d92bd6c8e54c0c17cf2c750e5cf33da3d8df01f5e96117f8ca0c58f00d752b635634c7302c90e3f4b5820313e51b50ce1bc9",
-        "dest-filename": "electron-22.3.24.tgz",
+        "url": "https://registry.yarnpkg.com/electron/-/electron-22.3.25.tgz#a9a70b63a6712c658cd7fab343129b2a78450f80",
+        "sha512": "023acfedb79b32cfc83ec826ca8c29b5b03b8f271392b242ee32d94dbe49a07df43e4042ea9671ffb5d0d1a0e893cd92b264a21785090ce83e1e82eb1018aa9a",
+        "dest-filename": "electron-22.3.25.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
@@ -6695,6 +6695,13 @@
     },
     {
         "type": "file",
+        "url": "https://registry.yarnpkg.com/isomorphic-ws/-/isomorphic-ws-5.0.0.tgz#e5529148912ecb9b451b46ed44d53dae1ce04bbf",
+        "sha512": "9ae21ded9ce7f72c03b325e04c869f4ebcb6b15de7c9265e5037ba61e7557751efbae7a9e40b0896a2be5de7d6a584f2246e5ee74dc5db122e4f695c53aac24b",
+        "dest-filename": "isomorphic-ws-5.0.0.tgz",
+        "dest": "flatpak-node/yarn-mirror"
+    },
+    {
+        "type": "file",
         "url": "https://registry.yarnpkg.com/istanbul-lib-coverage/-/istanbul-lib-coverage-3.2.0.tgz#189e7909d0a39fa5a3dfad5b03f71947770191d3",
         "sha512": "78e789e411c298762f40aef1b7d1a4747bb3b82192d58ea0f46be7c77626df77f3fc7a4b458c624b4c0736bfa6fcc042f01eb8ed7b7ad3cbc20c4be197d73a33",
         "dest-filename": "istanbul-lib-coverage-3.2.0.tgz",
@@ -7584,9 +7591,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/megalodon/-/megalodon-8.1.1.tgz#36c254aeca980aa4147cdec68aaae79e25e31056",
-        "sha512": "2bb6231a645b36425aa3613485a749096dc80e5a2e7d53d46d803fdfe4450c566f64ee6fd4c073deb5383a2c4882b1c763be0f55391253c607cf2bfb280e2b84",
-        "dest-filename": "megalodon-8.1.1.tgz",
+        "url": "https://registry.yarnpkg.com/megalodon/-/megalodon-8.1.4.tgz#bf660307f964a77306a9a443dc1b318382ebe909",
+        "sha512": "f57628801318fc5734d5079da8a470141fd5af17c045800493804210aeff894f62377f493748a803ddbb2a9c262e085285288a62ea45c2761c09bfdafc890ee4",
+        "dest-filename": "megalodon-8.1.4.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
@@ -11754,10 +11761,10 @@
     {
         "type": "shell",
         "commands": [
-            "mkdir -p \"httpsgithub.comelectronelectronreleasesdownloadv22.3.24electron-v22.3.24-linux-arm64.zip\"",
-            "ln -s \"../electron-v22.3.24-linux-arm64.zip\" \"httpsgithub.comelectronelectronreleasesdownloadv22.3.24electron-v22.3.24-linux-arm64.zip/electron-v22.3.24-linux-arm64.zip\"",
-            "mkdir -p \"2e7531c2591522e62c48cbbabb7c7d7841742151d300494d08f9140e13117fbb\"",
-            "ln -s \"../electron-v22.3.24-linux-arm64.zip\" \"2e7531c2591522e62c48cbbabb7c7d7841742151d300494d08f9140e13117fbb/electron-v22.3.24-linux-arm64.zip\""
+            "mkdir -p \"httpsgithub.comelectronelectronreleasesdownloadv22.3.25electron-v22.3.25-linux-arm64.zip\"",
+            "ln -s \"../electron-v22.3.25-linux-arm64.zip\" \"httpsgithub.comelectronelectronreleasesdownloadv22.3.25electron-v22.3.25-linux-arm64.zip/electron-v22.3.25-linux-arm64.zip\"",
+            "mkdir -p \"3fbf7a381ac74b691f0f5cfbda2a3d7722cbadd7b8bb672eb21591acb9d5e176\"",
+            "ln -s \"../electron-v22.3.25-linux-arm64.zip\" \"3fbf7a381ac74b691f0f5cfbda2a3d7722cbadd7b8bb672eb21591acb9d5e176/electron-v22.3.25-linux-arm64.zip\""
         ],
         "dest": "flatpak-node/cache/electron",
         "only-arches": [
@@ -11767,10 +11774,10 @@
     {
         "type": "shell",
         "commands": [
-            "mkdir -p \"httpsgithub.comelectronelectronreleasesdownloadv22.3.24electron-v22.3.24-linux-armv7l.zip\"",
-            "ln -s \"../electron-v22.3.24-linux-armv7l.zip\" \"httpsgithub.comelectronelectronreleasesdownloadv22.3.24electron-v22.3.24-linux-armv7l.zip/electron-v22.3.24-linux-armv7l.zip\"",
-            "mkdir -p \"2e7531c2591522e62c48cbbabb7c7d7841742151d300494d08f9140e13117fbb\"",
-            "ln -s \"../electron-v22.3.24-linux-armv7l.zip\" \"2e7531c2591522e62c48cbbabb7c7d7841742151d300494d08f9140e13117fbb/electron-v22.3.24-linux-armv7l.zip\""
+            "mkdir -p \"httpsgithub.comelectronelectronreleasesdownloadv22.3.25electron-v22.3.25-linux-armv7l.zip\"",
+            "ln -s \"../electron-v22.3.25-linux-armv7l.zip\" \"httpsgithub.comelectronelectronreleasesdownloadv22.3.25electron-v22.3.25-linux-armv7l.zip/electron-v22.3.25-linux-armv7l.zip\"",
+            "mkdir -p \"3fbf7a381ac74b691f0f5cfbda2a3d7722cbadd7b8bb672eb21591acb9d5e176\"",
+            "ln -s \"../electron-v22.3.25-linux-armv7l.zip\" \"3fbf7a381ac74b691f0f5cfbda2a3d7722cbadd7b8bb672eb21591acb9d5e176/electron-v22.3.25-linux-armv7l.zip\""
         ],
         "dest": "flatpak-node/cache/electron",
         "only-arches": [
@@ -11780,10 +11787,10 @@
     {
         "type": "shell",
         "commands": [
-            "mkdir -p \"httpsgithub.comelectronelectronreleasesdownloadv22.3.24electron-v22.3.24-linux-x64.zip\"",
-            "ln -s \"../electron-v22.3.24-linux-x64.zip\" \"httpsgithub.comelectronelectronreleasesdownloadv22.3.24electron-v22.3.24-linux-x64.zip/electron-v22.3.24-linux-x64.zip\"",
-            "mkdir -p \"2e7531c2591522e62c48cbbabb7c7d7841742151d300494d08f9140e13117fbb\"",
-            "ln -s \"../electron-v22.3.24-linux-x64.zip\" \"2e7531c2591522e62c48cbbabb7c7d7841742151d300494d08f9140e13117fbb/electron-v22.3.24-linux-x64.zip\""
+            "mkdir -p \"httpsgithub.comelectronelectronreleasesdownloadv22.3.25electron-v22.3.25-linux-x64.zip\"",
+            "ln -s \"../electron-v22.3.25-linux-x64.zip\" \"httpsgithub.comelectronelectronreleasesdownloadv22.3.25electron-v22.3.25-linux-x64.zip/electron-v22.3.25-linux-x64.zip\"",
+            "mkdir -p \"3fbf7a381ac74b691f0f5cfbda2a3d7722cbadd7b8bb672eb21591acb9d5e176\"",
+            "ln -s \"../electron-v22.3.25-linux-x64.zip\" \"3fbf7a381ac74b691f0f5cfbda2a3d7722cbadd7b8bb672eb21591acb9d5e176/electron-v22.3.25-linux-x64.zip\""
         ],
         "dest": "flatpak-node/cache/electron",
         "only-arches": [
