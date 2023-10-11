@@ -24,6 +24,17 @@ finish-args:
   - --env=FLATPAK_HOST=1
   - --env=GTK_USE_PORTAL=1
 modules:
+  - name: node-gyp
+    buildsystem: simple
+    build-commands:
+      - install -Dm755  node-gyp /app/bin
+    cleanup:
+      - "*"
+    sources:
+      - type: script
+        dest-filename: node-gyp
+        commands:
+          - node /usr/lib/sdk/node18/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js $@
   - name: whalebird
     buildsystem: simple
     build-options:
