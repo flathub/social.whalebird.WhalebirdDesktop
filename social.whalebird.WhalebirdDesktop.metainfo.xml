@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>social.whalebird.WhalebirdDesktop</id>
+
+  <name>Whalebird </name>
+  <summary>Whalebird is a Single-column Fediverse client for desktop </summary>
+
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPLv3</project_license>
+  <url type="homepage">https://whalebird.social/en/desktop/contents</url>
+  <content_rating type="oars-1.1">
+    <content_attribute id="social-chat">intense</content_attribute>
+    <content_attribute id="social-audio">intense</content_attribute>
+  </content_rating>
+
+
+  <description>
+    <p>Single-column Fediverse client for desktop</p>
+    <p>Features</p>
+        <ul>
+            <li>An interface like slack</li>
+            <li>Notify to desktop</li>
+            <li>Streaming</li>
+            <li>Manage multiple accounts</li>
+            <li>Supporting Mastodon, Pleroma, Friendica, and Firefish</li>
+        </ul>
+  </description>
+
+  <launchable type="desktop-id">social.whalebird.WhalebirdDesktop.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://github.com/h3poteto/whalebird-desktop/raw/main/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+  <releases>
+      <release version="6.1.3" date="2024-07-20">
+          <description>
+              <p>Updated</p>
+              <ul>
+                <li>Whalebird 6.x doesn't migrate your local databases from version 5.x So please re-authenticate all servers when you upgrade Whalebird from 5.x.</li>
+              </ul>
+          </description>
+      </release>
+  </releases>
+</component>
