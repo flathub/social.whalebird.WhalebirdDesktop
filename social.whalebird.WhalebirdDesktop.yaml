@@ -1,12 +1,10 @@
 app-id: social.whalebird.WhalebirdDesktop
 base: org.electronjs.Electron2.BaseApp
-base-version: "23.08"
+base-version: "24.08"
 runtime: org.freedesktop.Platform
-runtime-version: "23.08"
-command: start-whalebird.sh
+runtime-version: "24.08"
 sdk: org.freedesktop.Sdk
-sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node18
+command: start-whalebird.sh
 separate-locales: false
 finish-args:
   - --share=ipc
@@ -21,60 +19,39 @@ finish-args:
   - --talk-name=com.canonical.AppMenu.Registrar
   - --talk-name=com.canonical.indicator.application
   - --talk-name=com.canonical.Unity.LauncherEntry
+  - --env=ELECTRON_TRASH=gio
   - --env=FLATPAK_HOST=1
   - --env=GTK_USE_PORTAL=1
 modules:
-  - name: node-gyp
-    buildsystem: simple
-    build-commands:
-      - install -Dm755  node-gyp /app/bin
-    cleanup:
-      - "*"
-    sources:
-      - type: script
-        dest-filename: node-gyp
-        commands:
-          - node /usr/lib/sdk/node18/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js $@
   - name: whalebird
     buildsystem: simple
-    build-options:
-      append-path: /usr/lib/sdk/node18/bin
-      env:
-        npm_config_nodedir: /usr/lib/sdk/node18
-        XDG_CACHE_HOME: /run/build/whalebird/flatpak-node/cache/
-        ELECTRON_SKIP_BINARY_DOWNLOAD: "1"
-        OFFLINE: "1"
-        TMPDIR: /run/build/whalebird/flatpak-node/tmp
     build-commands:
-      - jq 'del(.linux.target)'  <<<$(<electron-builder.json) > electron-builder.json
-      - jq '.linux.target[0].target="dir"' <<<$(<electron-builder.json) > electron-builder.json
-      - HOME=$PWD yarn config --offline set yarn-offline-mirror ./flatpak-node/yarn-mirror
-      - HOME=$PWD yarn config --offline set better-sqlite3_local_prebuilds "${PWD}/flatpak-node/prebuild-mirror"
-      - yarn --offline
-      # equiv to yarn build:linux
-      - yarn --offline build
-      - yarn --offline package:linux
-      - cp -r build/linux-*unpacked /app/whalebird
-      - install -Dm755 -t /app/bin ./start-whalebird.sh
-    post-install:
-      - install -D flatpak-data/social.whalebird.WhalebirdDesktop.desktop -t /app/share/applications/
-      - install -D flatpak-data/social.whalebird.WhalebirdDesktop.metainfo.xml -t /app/share/metainfo/
-      - install -Dm644 build/icons/icon.iconset/icon_16x16.png /app/share/icons/hicolor/16x16/apps/$FLATPAK_ID.png
-      - install -Dm644 build/icons/icon.iconset/icon_32x32.png /app/share/icons/hicolor/32x32/apps/$FLATPAK_ID.png
-      - install -Dm644 build/icons/icon.iconset/icon_128x128.png /app/share/icons/hicolor/128x128/apps/$FLATPAK_ID.png
-      - install -Dm644 build/icons/icon.iconset/icon_256x256.png /app/share/icons/hicolor/256x256/apps/$FLATPAK_ID.png
+      - |
+        bsdtar -Oxf whalebird.deb 'data.tar.xz' \
+          | bsdtar -xf - --exclude './usr/share/doc'
+      - mv "opt/Whalebird" "${FLATPAK_DEST}/Whalebird"
+      - install -Dm0644 "${FLATPAK_ID}.desktop" "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
+      - install -Dm0644 "${FLATPAK_ID}.metainfo.xml" "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
+      - |
+        for size in 44 50 150 256; do
+          install -Dm0644 \
+            "usr/share/icons/hicolor/${size}x${size}/apps/whalebird.png" \
+            "${FLATPAK_DEST}/share/icons/hicolor/${size}x${size}/apps/${FLATPAK_ID}.png"
+        done
+      - install -Dm0755 start-whalebird.sh "${FLATPAK_DEST}/bin/start-whalebird.sh"
     sources:
-      - type: git
-        url: https://github.com/h3poteto/whalebird-desktop.git
-        tag: v5.1.1
-        commit: edaff504169f00013bbbc551f04944e2bf5ee047
       - type: file
-        url: https://github.com/WiseLibs/better-sqlite3/releases/download/v8.2.0/better-sqlite3-v8.2.0-electron-v110-linux-x64.tar.gz
-        sha256: b157a5c4adf3a0b2170a865e15b43c47f15f3949639ff48dfea3791dfcefec7f  
-        dest: flatpak-node/prebuild-mirror
+        dest-filename: whalebird.deb
+        url: https://github.com/h3poteto/whalebird-desktop/releases/download/v6.2.0/Whalebird-6.2.0-linux-amd64.deb
+        sha256: 1cfc213d66cb8057329accead432d9b4b2c539e1d7f3e22a6efb2d5ead2e1ede
+        only-arches:
+          - x86_64
+      - type: file
+        path: social.whalebird.WhalebirdDesktop.desktop
+      - type: file
+        path: social.whalebird.WhalebirdDesktop.metainfo.xml
       - type: script
         dest-filename: start-whalebird.sh
         commands:
           - export TMPDIR=$XDG_RUNTIME_DIR/app/$FLATPAK_ID
-          - FLATPAK_HOST=1 zypak-wrapper.sh /app/whalebird/whalebird "$@"
-      - generated-sources.json
+          - FLATPAK_HOST=1 zypak-wrapper.sh /app/Whalebird/whalebird "$@"
